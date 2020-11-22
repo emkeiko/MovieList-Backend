@@ -1,0 +1,23 @@
+{
+  "tt0441773": {
+    "id": "tt0441773",
+    "user": "adam",
+    "title": "Kung Fu Panda",
+    "liked": true,
+    "poster": "https://m.media-amazon.com/images/M/MV5BODJkZTZhMWItMDI3Yy00ZWZlLTk4NjQtOTI1ZjU5NjBjZTVjXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_SX300.jpg%22,%22Ratings%22:[%7B%22Source%22:%22Internet"
+  },
+  "tt0848228": {
+    "id": "tt0848228",
+    "user": "edwin",
+    "title": "Avengers",
+    "liked": false,
+    "poster": "https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"
+  },
+  "tt2277860": {
+    "id": "tt2277860",
+    "user": "emily",
+    "title": "Finding Dory",
+    "liked": true,
+    "poster": "https://m.media-amazon.com/images/M/MV5BNzg4MjM2NDQ4MV5BMl5BanBnXkFtZTgwMzk3MTgyODE@._V1_SX300.jpg"
+  }
+}
