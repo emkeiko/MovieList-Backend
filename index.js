@@ -15,23 +15,7 @@ app.use(bodyParser.json())
 //     return
 // })
 
-app.post('/login', (req, res) => {
 
-    let user = req.body.user;
-    let password = req.body.password;
-
-    let user_data = login_data.get(user);
-    if(user_data == null) {
-        res.status(404).send("Not found");
-        return;
-    }
-    if (user_data.password == password) {
-        console.log("User " + user + "logged in");
-        res.json(true);
-        return;
-    }
-    res.status(403).send("incorrect login");
-}) 
 
 app.get('/movies/:id', (req, res) => { // gets particular user by ID
     let u = Movie.findByID(req.params.id)
