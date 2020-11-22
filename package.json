@@ -9,7 +9,9 @@
   "license": "ISC",
   "dependencies": {
     "data-store": "^4.0.3",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "session": "^0.1.0"
   },
   "engines": {
     "node": "14.15.1"
