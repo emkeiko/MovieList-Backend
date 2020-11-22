@@ -2,15 +2,16 @@ const movie_data = require('data-store')({path: process.cwd() + '/data/movie.jso
 
 class Movie {
 
-    constructor(id, user, title, rating, poster) {
+    constructor(id, user, title, liked, poster) {
         this.id = id;
         this.user = user;
         this.title = title;
-        this.rating = rating;
+        this.liked = liked;
         this.poster = poster;
     }
 
-    update() {
+    update(liked) {
+        this.liked = liked;
         movie_data.set(this.id.toString(), this)
     }
     
@@ -25,14 +26,16 @@ Movie.getAllIDs = () => {
 
 }
 
-Movie.getAllIDsUser = (user) => {
-    return Object.keys(movie_data.data).filter(id => movie_data.get(id).user == user).map((id => {return parseInt(id);}));
+Movie.getAllMoviesUser = (user) => {
+    let array = Object.keys(movie_data.data).filter(id => movie_data.get(id).user == user)
+    return array.map(id => Movie.findByID(id))
+    
 }
 
 Movie.findByID = (id) => {
     let mdata = movie_data.get(id)
     if (mdata != null) {
-        return new Movie(mdata.id, mdata.user, mdata.title, mdata.rating, mdata.poster)
+        return new Movie(mdata.id, mdata.user, mdata.title, mdata.liked, mdata.poster)
     }
     return null
     
@@ -45,17 +48,17 @@ Movie.findByID = (id) => {
 //     return max;
 // }, -1) + 1
 
-Movie.create = (id, title, rating, poster) => {
+Movie.create = (id, user, title, liked, poster) => {
     // let id = User.next_id;
     // User.next_id += 1;
-    let m = new Movie(id, user, title, rating, poster)
+    let m = new Movie(id, user, title, liked, poster)
     movie_data.set(m.id.toString(), m)
     return m
 }
 
 // Dummy user examples
 
-let m1 = new Movie("tt0441773", "Kung Fu Panda", true, 'https://m.media-amazon.com/images/M/MV5BODJkZTZhMWItMDI3Yy00ZWZlLTk4NjQtOTI1ZjU5NjBjZTVjXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_SX300.jpg%22,%22Ratings%22:[%7B%22Source%22:%22Internet')
+let m1 = new Movie("tt0441773", "adam", "Kung Fu Panda", true, 'https://m.media-amazon.com/images/M/MV5BODJkZTZhMWItMDI3Yy00ZWZlLTk4NjQtOTI1ZjU5NjBjZTVjXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_SX300.jpg%22,%22Ratings%22:[%7B%22Source%22:%22Internet')
 movie_data.set(m1.id.toString(), m1) // assoicates user object, u1, with key 0
 
 module.exports = Movie;
